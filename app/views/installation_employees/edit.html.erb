@@ -1,0 +1,6 @@
+<h1>Editing Installation Employee</h1>
+
+<%= render 'form', installation_employee: @installation_employee if can? :edit, TubeKit%>
+
+<%= link_to 'Show', @installation_employee %> |
+<%= link_to 'Back', installation_employees_path %>

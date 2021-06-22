@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Kit installation:</strong>
+  <%= @installation_employee.kit_installation_id %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @installation_employee.employee_id %>
+</p>
+
+<%= link_to 'Edit', edit_installation_employee_path(@installation_employee) %> |
+<%= link_to 'Back', installation_employees_path %>

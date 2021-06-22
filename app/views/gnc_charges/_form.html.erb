@@ -1,0 +1,57 @@
+<%= form_with(model: gnc_charge) do |form| %>
+  <% if gnc_charge.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(gnc_charge.errors.count, "error") %> prohibited this gnc_charge from being saved:</h2>
+
+      <ul>
+        <% gnc_charge.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field">
+    <%= form.label :car_id %>
+    <%= form.collection_select(:car_id, Car.all, :id, :license_car_version_model_brand) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :service_station_id %>
+    <%= form.collection_select(:service_station_id, ServiceStation.all, :id, :service_station_locality_province_country) %>
+  </div>
+  <div class="field">
+    <%= form.label :charge_moment %>
+    <%= form.datetime_select :charge_moment %>
+  </div>
+
+
+
+  <div class="field">
+    <%= form.label :cost_on_argentinian_pesos %>
+    <%= form.number_field :cost_on_argentinian_pesos %>
+  </div>
+
+
+
+  <div class="field">
+    <%= form.label :client_id %>
+  <%= form.collection_select(:client_id, Client.all, :id, :full_name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weather %>
+    <%= form.text_field :weather %>
+  </div>
+
+  <div class="field">
+    <%= form.label :celsius_temperature %>
+    <%= form.number_field :celsius_temperature %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

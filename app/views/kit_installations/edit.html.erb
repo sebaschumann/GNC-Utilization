@@ -1,0 +1,6 @@
+<h1>Editing Kit Installation</h1>
+
+<%= render 'form', kit_installation: @kit_installation if can? :edit, TubeKit%>
+
+<%= link_to 'Show', @kit_installation %> |
+<%= link_to 'Back', kit_installations_path %>

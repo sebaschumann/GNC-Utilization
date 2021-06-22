@@ -1,0 +1,6 @@
+<h1>Editing Country</h1>
+
+<%= render 'form', country: @country if can? :edit, Locality %>
+
+<%= link_to 'Show', @country %> |
+<%= link_to 'Back', countries_path %>

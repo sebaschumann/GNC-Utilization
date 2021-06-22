@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1 style="background-color:powderblue; color:blue; font-family:verdanas; text-align:center; "><%= t('g.exam_types') %></h1>
+
+
+<font size="5" face="Courier New" >
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"><%= t('g.name') %></th>
+        <th scope="col"><%= t('g.cost_on_argentinian_pesos') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exam_types.each do |exam_type| %>
+      <tr>
+        <td style="font-family: sans-serif; font-size:70%; "><%= exam_type.name %></td>
+        <td style="font-family: sans-serif; font-size:70%; "><%= exam_type.cost_on_argentinian_pesos %></td>
+        <td><%= link_to t('g.show'), exam_type, class:'btn btn-info', style: 'color: #01033D; font-family:cursive;' if can? :show, Tube  %></td>
+        <td><%= link_to t('g.edit'), edit_exam_type_path(exam_type), class:'btn btn-warning', style: 'color: #000000', style: 'font-family:cursive' if can? :edit, Tube  %></td>
+        <td><%= link_to t('g.destroy'), exam_type, class:'btn btn-danger', style: 'color: #FFFFFF; font-family:cursive;', method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, Tube %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @exam_types %>
+<br>
+<ul class="navbar navbar-expand-xl navbar-dark bg-dark">
+  <li class="btn btn-success" align="right">
+<%= link_to t('g.add'), new_exam_type_path, style: 'color: #efefef', align:'right' if can? :create, Tube %>
+</li>
+</ul>
+<br>
+<br>

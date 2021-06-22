@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2021-06-11 11:40:37
+  cost_on_argentinian_pesos: 1
+  tube_kit: one
+  workshop: one
+  car: one
+
+two:
+  date: 2021-06-11 11:40:37
+  cost_on_argentinian_pesos: 1
+  tube_kit: two
+  workshop: two
+  car: two

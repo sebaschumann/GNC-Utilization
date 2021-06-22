@@ -1,0 +1,42 @@
+<%= form_with(model: tube_verification) do |form| %>
+  <% if tube_verification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tube_verification.errors.count, "error") %> prohibited this tube_verification from being saved:</h2>
+
+      <ul>
+        <% tube_verification.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enabled %>
+    <%= form.check_box :enabled %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exam_type_id %>
+    <%= form.collection_select(:exam_type_id , ExamType.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tube_id %>
+      <%= form.collection_select(:tube_id , Tube.all, :id, :id_diameter_capacity) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :technician_id %>
+  <%= form.collection_select(:technician_id , Technician.all, :id, :full_name) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,129 @@
+
+
+
+
+<ul class="navbar navbar-expand-xl navbar-dark bg-dark">
+
+<li class="title">
+<h1 class="card-title" style="color:yellow;"><%= t('g.gnc_utilization') %></h1>
+</li>
+
+  <li class="nav-item dropdown" id=1>
+    <a class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><%= t('g.places') %></a>
+    <ul class="dropdown-menu dropdown-menu-dark"aria-labelledby="dropdownMenuDark">
+      <li><a class="dropdown-item" href="/countries"><%= t('g.countries') %></a></li>
+      <li><a class="dropdown-item" href="/provinces"><%= t('g.provinces') %></a></li>
+      <li><a class="dropdown-item" href="/localities"><%= t('g.localities') %></a></li>
+    </ul>
+  </li>
+
+
+
+  <li class="nav-item dropdown" id=2>
+    <a class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuDark" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><%= t('g.cars') %></a>
+    <ul class="dropdown-menu dropdown-menu-dark"aria-labelledby="dropdownMenuDark">
+      <li><a class="dropdown-item" href="/cars"><%= t('g.cars') %></a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="/brands"><%= t('g.brands') %></a></li>
+      <li><a class="dropdown-item" href="/models"><%= t('g.models') %></a></li>
+      <li><a class="dropdown-item" href="/versions"><%= t('g.versions') %></a></li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown" id=3>
+    <a class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><%= t('g.gnc_charges') %></a>
+    <ul class="dropdown-menu dropdown-menu-dark"aria-labelledby="dropdownMenuDark">
+      <li><a class="dropdown-item" href="/gnc_charges"><%= t('g.gnc_charges') %></a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="/service_stations"><%= t('g.service_stations') %></a></li>
+      <li><a class="dropdown-item" href="/cars"><%= t('g.cars') %></a></li>
+      <li><a class="dropdown-item" href="/clients"><%= t('g.clients') %></a></li>
+    </ul>
+  </li>
+  <li class="nav-item dropdown" id=4>
+    <a class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><%= t('g.tubes') %></a>
+  <ul class="dropdown-menu dropdown-menu-dark"aria-labelledby="dropdownMenuDark">
+      <li><a class="dropdown-item" href="/tube_verifications"><%= t('g.tube_verification') %></a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="/tubes"><%= t('g.tubes') %></a></li>
+      <li><a class="dropdown-item" href="/exam_types"><%= t('g.exam_types') %></a></li>
+      <li><a class="dropdown-item" href="/technicians"><%= t('g.technicians') %></a></li>
+    </ul>
+  </li>
+
+  <li class="nav-item dropdown" id=5>
+    <a class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown"  href="#" role="button" aria-expanded="false"><%= t('g.kits') %></a>
+  <ul class="dropdown-menu dropdown-menu-dark"aria-labelledby="dropdownMenuDark">
+      <li><a class="dropdown-item" href="/kit_installations"><%= t('g.kit_installation') %></a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="/tube_kits"><%= t('g.tube_kits') %></a></li>
+        <li><a class="dropdown-item" href="/workshops"><%= t('g.workshops') %></a></li>
+      <li><a class="dropdown-item" href="/kit_verifications"><%= t('g.kit_verifications') %></a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="/employees"><%= t('g.employees') %></a></li>
+      <li><a class="dropdown-item" href="/installation_employees"><%= t('g.installation_employees') %></a></li>
+    </ul>
+  </li>
+
+
+
+
+
+
+  <div class="collapse navbar-collapse show" id="navbarWithDropdown">
+  <ul class="navbar-nav">
+    <% if user_signed_in? %>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle btn btn-secondary " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <span style="color:white"><strong><%= I18n.t("welcome")%> </strong><%= current_user.email %></span>
+      </a>
+
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <li><%= link_to "Editar Perfil", edit_user_registration_path, class: "btn" %></li>
+          <hr>
+          <li><%= link_to "Cerrar Sesión", destroy_user_session_path, class: "btn",  method: :delete  %></li>
+        </ul>
+      </li>
+      <% else %>
+        <%= link_to "Iniciar Sesión", new_user_session_url, class: 'btn btn-success' %>
+    <% end %>
+  </ul>
+
+</div>
+
+  <li class="nav-item" >
+<div class="btn btn-primary"  >
+  <span style="color:white">
+    <strong>
+      <%= render 'shared/language_switcher', style: 'color: #efefef'  %>
+      </strong>
+      </span>
+    </div>
+</li>
+
+  <br>
+</ul>
+
+<div class="card">
+
+      </div>
+
+
+
+
+
+
+
+
+
+      <nav align="right" class="navbar fixed-bottom navbar-dark bg-secondary"  font-color="blue">
+
+        <code  style="font-family:cursive; color:white;"  >
+
+
+
+
+          <a class="navbar-brand" href="#!"><small>&copy; 2021 - <%= t('g.gnc_utilization') %> - Sebastián Schumann</small></a>
+        </code>
+
+
+      </nav>

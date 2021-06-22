@@ -1,0 +1,6 @@
+<h1>Editing Tube Verification</h1>
+
+<%= render 'form', tube_verification: @tube_verification if can? :edit, Tube %>
+
+<%= link_to 'Show', @tube_verification %> |
+<%= link_to 'Back', tube_verifications_path %>

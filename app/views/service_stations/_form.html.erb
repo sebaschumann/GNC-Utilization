@@ -1,0 +1,54 @@
+<%= form_with(model: service_station) do |form| %>
+  <% if service_station.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(service_station.errors.count, "error") %> prohibited this service_station from being saved:</h2>
+
+      <ul>
+        <% service_station.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :adress %>
+    <%= form.text_field :adress %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fuel_types %>
+    <select name="service_station[fuel_types]">
+      <option value="1">GNC</option>
+      <option value="2">GNC, Nafta y Diesel </option>
+      <option value="3">Nafta y Diesel</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <%= form.label :flag %>
+    <select name="service_station[flag]">
+      <option value="1">BLANCA</option>
+      <option value="2">SIN BANDERA</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <%= form.label :dispensers_quantity %>
+    <%= form.number_field :dispensers_quantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :locality_id %>
+      <%= form.collection_select(:locality_id, Locality.all, :id, :locality_province_country) %>>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1 style="background-color:powderblue; color:blue; font-family:verdanas; text-align:center; "><%= t('g.kit_installations') %></h1>
+
+
+<font size="5" face="Courier New" >
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col"><%= t('g.date')%></th>
+      <th scope="col"><%= t('g.cost_on_argentinian_pesos') %></th>
+      <th scope="col"><%= t('g.tube_kit')%></th>
+      <th scope="col"><%= t('g.workshop') %></th>
+        <th scope="col"><%= t('g.car') %></th>
+        <th scope="col"><%= t('g.license') %></th>
+        <th scope="col"><%= t('g.installation_employees') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kit_installations.each do |kit_installation| %>
+      <tr>
+        <td style="font-family: sans-serif; font-size:70%; "><%= kit_installation.date %></td>
+        <td style="font-family: sans-serif; font-size:70%; "><%= kit_installation.cost_on_argentinian_pesos %></td>
+        <td style="font-family: sans-serif; font-size:70%; "><%= kit_installation.tube_kit.kit_number %></td>
+        <td style="font-family: sans-serif; font-size:70%; "><%= kit_installation.workshop.name_locality %></td>
+        <td style="font-family: sans-serif; font-size:70%; "><%= kit_installation.car.car_version_model_brand %></td>
+        <td style="font-family: sans-serif; font-size:70%; "><%= kit_installation.car.license %></td>
+        <td style="font-family: sans-serif; font-size:70%; "><%= link_to kit_installation.installation_employees.count, installation_employees_path(:kit_installation_tube_kit => kit_installation.tube_kit) %>
+
+        <td><%= link_to t('g.show'), kit_installation, class:'btn btn-info', style: 'color: #01033D; font-family:cursive;' if can? :show, TubeKit  %></td>
+        <td><%= link_to t('g.edit'), edit_kit_installation_path(kit_installation), class:'btn btn-warning', style: 'color: #000000', style: 'font-family:cursive' if can? :edit, TubeKit  %></td>
+        <td><%= link_to t('g.destroy'), kit_installation, class:'btn btn-danger', style: 'color: #FFFFFF; font-family:cursive;', method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, TubeKit %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @kit_installations %>
+
+<br>
+
+<ul class="navbar navbar-expand-xl navbar-dark bg-dark">
+  <li class="btn btn-success" align="right">
+<%= link_to t('g.add'), new_kit_installation_path, style: 'color: #efefef', align:'right' if can? :create, TubeKit %>
+</li>
+</ul>
+<br>
+<br>

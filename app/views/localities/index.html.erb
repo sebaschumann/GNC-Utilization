@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1 style="background-color:powderblue; color:blue; font-family:verdanas; text-align:center; "><%= t('g.localities') %></h1>
+
+<form method="d-flex" action="/localities">
+<h4> <%= t('g.search') %> </h4>
+ <input class="form-control me-2" placeholder=<%= t('g.localities') %> aria-label="Search"type="text" name="filter" />
+<br>
+<button class="btn btn-primary" type="submit">Search</button>
+<br>
+
+
+<font size="5" face="Courier New" >
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"><%= t('g.name') %></th>
+      <th scope="col"><%= t('g.province')%></th>
+      <th scope="col"><%= t('g.country') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @localities.each do |locality| %>
+    <font size="5" face="Courier New" >
+      <tr>
+        <td style="font-family: sans-serif; font-size:70%; "><%= locality.name %></td>
+        <td style="font-family: sans-serif; font-size:70%; "><%= locality.province.name %></td>
+        <td style="font-family: sans-serif; font-size:70%; "><%= locality.province.country.name %></td>
+        <td><%= link_to t('g.show'), locality, class:'btn btn-info', style: 'color: #01033D; font-family:cursive;' if can? :show, Locality %></td>
+        <td><%= link_to t('g.edit'), edit_locality_path(locality), class:'btn btn-warning', style: 'color: #000000', style: 'font-family:cursive' if can? :edit, Locality %></td>
+        <td><%= link_to t('g.destroy'), locality, class:'btn btn-danger', style: 'color: #FFFFFF; font-family:cursive;', method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, Locality %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
+<%= paginate @localities %>
+<br>
+
+
+
+
+
+
+
+
+<ul class="navbar navbar-expand-xl navbar-dark bg-dark">
+  <li class="btn btn-success" align="right" >
+    <%= link_to t('g.add'), new_locality_path, style: 'color: #efefef', align:'right' if can? :create, Locality%>
+  </li>
+  </ul>
+  <br>
+  <br>

@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1 style="background-color:powderblue; color:blue; font-family:verdanas; text-align:center; "><%= t('g.employees') %></h1>
+
+
+<font size="5" face="Courier New" >
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"><%= t('g.first_name') %></th>
+      <th scope="col"><%= t('g.last_name') %></th>
+      <th scope="col"><%= t('g.birthday') %></th>
+      <th scope="col"><%= t('g.document_number') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td style="font-family: sans-serif; font-size:70%; "><%= employee.first_name %></td>
+        <td style="font-family: sans-serif; font-size:70%; "><%= employee.last_name %></td>
+        <td style="font-family: sans-serif; font-size:70%; "><%= employee.birthday %></td>
+        <td style="font-family: sans-serif; font-size:70%; "><%= employee.document_number %></td>
+        <td><%= link_to t('g.show'), employee, class:'btn btn-info', style: 'color: #01033D; font-family:cursive;' if can? :show, KitInstallation  %></td>
+        <td><%= link_to t('g.edit'), edit_employee_path(employee), class:'btn btn-warning', style: 'color: #000000', style: 'font-family:cursive' if can? :edit, KitInstallation  %></td>
+        <td><%= link_to t('g.destroy'), employee, class:'btn btn-danger', style: 'color: #FFFFFF; font-family:cursive;', method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, KitInstallation %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @employees %>
+<br>
+
+<ul class="navbar navbar-expand-xl navbar-dark bg-dark">
+  <li class="btn btn-success" align="right">
+<%= link_to t('g.add'), new_employee_path, style: 'color: #efefef', align:'right' if can? :create, KitInstallation %>
+</li>
+</ul>
+<br>
+<br>

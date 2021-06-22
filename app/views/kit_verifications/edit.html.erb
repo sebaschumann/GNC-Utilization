@@ -1,0 +1,6 @@
+<h1>Editing Kit Verification</h1>
+
+<%= render 'form', kit_verification: @kit_verification if can? :edit, TubeKit%>
+
+<%= link_to 'Show', @kit_verification %> |
+<%= link_to 'Back', kit_verifications_path %>

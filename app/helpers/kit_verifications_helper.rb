@@ -1,0 +1,2 @@
+module KitVerificationsHelper
+end

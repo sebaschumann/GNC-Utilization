@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @kit_verification.year %>
+</p>
+
+<p>
+  <strong>Enabled:</strong>
+  <%= @kit_verification.enabled %>
+</p>
+
+<p>
+  <strong>Tube kit:</strong>
+  <%= @kit_verification.tube_kit_id %>
+</p>
+
+<%= link_to 'Edit', edit_kit_verification_path(@kit_verification) %> |
+<%= link_to 'Back', kit_verifications_path %>

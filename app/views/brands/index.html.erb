@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1 style="background-color:powderblue; color:blue; font-family:verdanas; text-align:center; "><%= t('g.brands') %></h1>
+
+<form method="d-flex" action="/brands">
+<h4> <%= t('g.search') %> </h4>
+ <input class="form-control me-2" placeholder=<%= t('g.brand') %> aria-label="Search"type="text" name="filter" />
+ <br>
+<button class="btn btn-primary" type="submit">Search</button>
+<br>
+<br>
+
+  </form>
+
+<font size="5" face="Courier New" >
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"><%= t('g.brand') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @brands.each do |brand| %>
+      <tr>
+        <td style="font-family: sans-serif; font-size:70%; "><%= brand.brand %></td>
+        <td><%= link_to t('g.show'), brand, class:'btn btn-info', style: 'color: #01033D; font-family:cursive;' if can? :show, Car %></td>
+        <td><%= link_to t('g.edit'), edit_brand_path(brand), class:'btn btn-warning', style: 'color: #000000', style: 'font-family:cursive' if can? :edit, Car %></td>
+        <td><%= link_to t('g.destroy'), brand, class:'btn btn-danger', style: 'color: #FFFFFF; font-family:cursive;' ,method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, Car%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @brands %>
+<br>
+<ul class="navbar navbar-expand-xl navbar-dark bg-dark">
+<li class="btn btn-success" align="right" >
+<%= link_to t('g.add'), new_brand_path, style: 'color: #efefef', align:'right' if can? :create, Car %>
+</li>
+</ul>

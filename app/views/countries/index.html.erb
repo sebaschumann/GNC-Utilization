@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+
+  <h1 style="background-color:powderblue; color:blue; font-family:verdanas; text-align:center; "><%= t('g.countries') %></h1>
+
+
+  <form method="d-flex" action="/countries">
+<h4> <%= t('g.search') %> </h4>
+   <input class="form-control me-2" placeholder=<%= t('g.countries') %> aria-label="Search"type="text" name="filter" />
+   <br>
+<button class="btn btn-primary" type="submit">Search</button>
+ <br>
+<font size="5" face="Courier New" >
+<table class="table table-striped">
+  <thead >
+    <tr>
+      <th scope="col"><%= t('g.name') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+
+
+
+
+  <tbody>
+    <% @countries.each do |country| %>
+
+    <tr>
+        <td><li style="font-family: sans-serif; font-size:150%; "><%= country.name  %></li></td>
+        <td><%= link_to t('g.show'), country, class:'btn btn-info', style: 'color: #01033D; font-family:cursive;' if can? :show, Locality%></td>
+        <td><%= link_to t('g.edit'), edit_country_path(country), class:'btn btn-warning', style: 'color: #000000', style: 'font-family:cursive' if can? :edit, Locality%></td>
+        <td><%=  link_to t('g.destroy'), country, class:'btn btn-danger', style: 'color: #FFFFFF; font-family:cursive;', method: :delete, data: { confirm: t('g.are_you_sure') } if can? :destroy, Locality%></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @countries %>
+<br>
+
+<ul class="navbar navbar-expand-xl navbar-dark bg-dark">
+<li class="btn btn-success" align="right" >
+  <%= link_to t('g.add'), new_country_path, style: 'color: #efefef', align:'right' if can? :create, Country%>
+</li>
+  </ul>
+
+
+
+
+
+
+  <br>
+  <br>
+  
+
+
+
+<!-- .table-{color} can be use with .table, thead, tbody, tr, th and td -->

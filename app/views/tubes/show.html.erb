@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Diameter on milimeters:</strong>
+  <%= @tube.diameter_on_milimeters %>
+</p>
+
+<p>
+  <strong>Capacity on liters:</strong>
+  <%= @tube.capacity_on_liters %>
+</p>
+
+<p>
+  <strong>Expiration date:</strong>
+  <%= @tube.expiration_date %>
+</p>
+
+<%= link_to 'Edit', edit_tube_path(@tube) %> |
+<%= link_to 'Back', tubes_path %>

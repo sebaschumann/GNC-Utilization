@@ -1,0 +1,6 @@
+<h1>Editing Gnc Charge</h1>
+
+<%= render 'form', gnc_charge: @gnc_charge if can? :edit, GncCharge%>
+
+<%= link_to 'Show', @gnc_charge %> |
+<%= link_to 'Back', gnc_charges_path %>

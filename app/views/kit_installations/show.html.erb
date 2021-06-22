@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @kit_installation.date %>
+</p>
+
+<p>
+  <strong>Cost on argentinian pesos:</strong>
+  <%= @kit_installation.cost_on_argentinian_pesos %>
+</p>
+
+<p>
+  <strong>Tube kit:</strong>
+  <%= @kit_installation.tube_kit_id %>
+</p>
+
+<p>
+  <strong>Workshop:</strong>
+  <%= @kit_installation.workshop_id %>
+</p>
+
+<p>
+  <strong>Car:</strong>
+  <%= @kit_installation.car_id %>
+</p>
+
+<%= link_to 'Edit', edit_kit_installation_path(@kit_installation) %> |
+<%= link_to 'Back', kit_installations_path %>

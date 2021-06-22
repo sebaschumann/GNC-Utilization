@@ -1,0 +1,32 @@
+<%= form_with(model: kit_verification) do |form| %>
+  <% if kit_verification.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(kit_verification.errors.count, "error") %> prohibited this kit_verification from being saved:</h2>
+
+      <ul>
+        <% kit_verification.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.date_select :year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :enabled %>
+    <%= form.check_box :enabled %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tube_kit_id %>
+    <%= form.collection_select(:tube_kit_id, TubeKit.all, :id, :kit_number) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

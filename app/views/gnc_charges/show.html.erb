@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Charge moment:</strong>
+  <%= @gnc_charge.charge_moment %>
+</p>
+
+<p>
+  <strong>Weather:</strong>
+  <%= @gnc_charge.weather %>
+</p>
+
+<p>
+  <strong>Celsius temperature:</strong>
+  <%= @gnc_charge.celsius_temperature %>
+</p>
+
+<p>
+  <strong>Cost on argentinian pesos:</strong>
+  <%= @gnc_charge.cost_on_argentinian_pesos %>
+</p>
+
+<p>
+  <strong>Car:</strong>
+  <%= @gnc_charge.car_id %>
+</p>
+
+<p>
+  <strong>Service station:</strong>
+  <%= @gnc_charge.service_station_id %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @gnc_charge.client_id %>
+</p>
+
+<%= link_to 'Edit', edit_gnc_charge_path(@gnc_charge) %> |
+<%= link_to 'Back', gnc_charges_path %>

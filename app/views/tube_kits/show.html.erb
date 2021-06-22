@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Kit number:</strong>
+  <%= @tube_kit.kit_number %>
+</p>
+
+<p>
+  <strong>Tube:</strong>
+  <%= @tube_kit.tube_id %>
+</p>
+
+<%= link_to 'Edit', edit_tube_kit_path(@tube_kit) %> |
+<%= link_to 'Back', tube_kits_path %>
